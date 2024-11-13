@@ -78,7 +78,10 @@ RS1M=0 //mean of group 1
 RS0SD=1 //sdev of group 0
 RS1SD=1 //sdev of group 1
 proc rsi () {
-  if(myrdm==nil) myrdm=new Random()  
+  if(myrdm==nil){
+myrdm=new Random()
+myrdm.Random123()
+  }
   {myrdm.normal(RS0M,RS0SD) vIN0=new Vector(R0SZ) vIN0.setrand(myrdm)}  
   {myrdm.normal(RS1M,RS1SD) vIN1=new Vector(R1SZ) vIN1.setrand(myrdm)}
   vhsout=new Vector(vIN0.size+vIN1.size)
